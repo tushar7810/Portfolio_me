@@ -4,12 +4,12 @@ import { Message } from "../models/message.model.js";
 
 export const sendMessage = catchAsyncErrors(async(req,res,next) => {
     try {
-        const {sendername , subject , message} = req.body
-        if(!sendername || !subject || !message){
+        const {senderName , subject , message} = req.body
+        if(!senderName || !subject || !message){
             return next(new ErrorHandler("Please fill full form", 400))
         }
         const data = await Message.create({
-            sendername,
+            senderName,
             subject,
             message
         })
