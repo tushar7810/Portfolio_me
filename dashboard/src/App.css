@@ -1,30 +1,33 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+::-webkit-scrollbar{
+  width: 15px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+::-webkit-scrollbar-track{
+  background: #d1e5ff;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+::-webkit-scrollbar-thumb{
+  border-radius: 7px;
+  background: linear-gradient(#642bff, #ff22e6);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.avatar-update-btn::file-selector-button{
+  width: 100%;
+  padding: 7px;
+  font-weight: 600;
+  border: 1px solid hsl(222.2,47.4%,11.2%);
+  background: hsl(222.2,47.4%,11.2%);
+  cursor: pointer;
+  color: #fff;
+}
+
+.avatar-update-btn::file-selector-button:hover{
+  background: transparent;
+  color: hsl(222.2,47.4%,11.2%);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -40,3 +43,44 @@
 .read-the-docs {
   color: #888;
 }
+
+#email::placeholder{
+  color: #fff;
+}
+
+#password::placeholder{
+  color: #fff;
+}
+
+.loader {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  animation: rotate 1.5s ease-in infinite alternate;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #FF3D00;
+  background: currentColor;
+  width: 64px;
+  height: 32px;
+  border-radius: 0 0 50px 50px;
+}
+.loader::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  background: #FFF;
+  width: 8px;
+  height: 64px;
+  animation: rotate 1.2s linear infinite alternate-reverse;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg)}
+}
+      
