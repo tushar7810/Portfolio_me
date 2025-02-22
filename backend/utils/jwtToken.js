@@ -7,12 +7,12 @@ export const sendCookieToken = (user,message, statusCode,res) => {
     },
     process.env.JWT_SECRET_KEY,
     {
-      expiresIn: Date.now() + process.env.JWT_EXPIRE_TIME*5*60*1000
+      expiresIn: Date.now() + process.env.JWT_EXPIRE_TIME*60*60*1000
     }
   )
   // cookie section
   const options = {
-    expires: new Date(Date.now() + process.env.COOKIE_EXPIRE*5*60*1000),
+    expires: new Date(Date.now() + process.env.COOKIE_EXPIRE*60*60*1000),
     httpOnly: true,
     secure: true
   };

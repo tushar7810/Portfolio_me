@@ -134,7 +134,7 @@ export const updateProfle = catchAsyncErrors(async (req, res, next) => {
 
         if (req.files && req.files.avatar) {
             const avatar = req.files.avatar;
-            const user = await User.findById(req.user.id)
+            // const user = await User.findById(req.user.id)
 
             const profileImageId = user.avatar.public_id
             await cloudinary.uploader.destroy(profileImageId)
@@ -151,7 +151,7 @@ export const updateProfle = catchAsyncErrors(async (req, res, next) => {
         }
         if (req.files && req.files.resume) {
             const resume = req.files.resume;
-            const user = await User.findById(req.user.id)
+            // const user = await User.findById(req.user.id)
 
             const resumeFileId = user.resume.public_id
             if (resumeFileId) {

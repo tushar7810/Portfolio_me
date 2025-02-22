@@ -170,10 +170,10 @@ export const updatePassword = (currentPassword, newPassword, conformNewPassword)
         dispatch(userSlice.actions.updatePasswordFailed(error.response.data.message))
     }
 }
-export const updateProfile = (data) => async(dispatch) => {
+export const updateProfile = (newData) => async(dispatch) => {
     dispatch(userSlice.actions.updateProfileRequest())
     try {
-        await axios.put("/api/v1/user/update/profile", data,
+        const {data} = await axios.put("/api/v1/user/update/profile", newData,
             {
                 withCredentials: true,
                 headers: {"Content-Type" : "multipart/form-data"}    

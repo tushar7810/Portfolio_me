@@ -34,6 +34,7 @@ export function LoginForm({
     }
     console.log(isAuthenticated);
     if(!loading && isAuthenticated){
+      // toast.success("Login Successfully")
       navigateTo('/')
     }
   },[dispatch , isAuthenticated , error , loading])

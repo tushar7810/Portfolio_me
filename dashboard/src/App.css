@@ -12,7 +12,7 @@
 }
 ::-webkit-scrollbar-thumb{
   border-radius: 7px;
-  background: linear-gradient(#642bff, #ff22e6);
+  background: linear-gradient(#210961, #4f0947);
 }
 
 .avatar-update-btn::file-selector-button{
@@ -83,4 +83,10 @@
 @keyframes rotate {
   100% { transform: rotate(360deg)}
 }
-      
+
+Input,Textarea{
+  color: #000;
+}
+Input::placeholder,Label::placeholder,Textarea::placeholder{
+  color: #000;    
+}
