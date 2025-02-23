@@ -208,7 +208,7 @@ export const updatePassword = catchAsyncErrors(async(req, res, next) => {
         }
 
         if (newPassword !== conformNewPassword) {
-            return next(new ErrorHandler("New password and conform password don't match!!", 400))
+            return next(new ErrorHandler("New password and conform password not matched!", 400))
         }
 
         user.password = newPassword;

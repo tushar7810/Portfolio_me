@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
-import { Link, useNavigate } from 'react-router-dom';
-import SpecialLoadingButton from "./SpecialLoadingButton"
 import {toast} from 'react-toastify'
-import { updatePassword } from '../../store/slices/userSlice';
+import SpecialLoadingButton from "./SpecialLoadingButton"
+import { clearAllUserErrors, getUser ,resetProfile, updatePassword } from '../../store/slices/userSlice';
 
 const UpdatePassword = () => {
 
@@ -19,21 +17,25 @@ const UpdatePassword = () => {
 
   const handlePasswordUpdate =(e) => {
     e.preventDefault()
-    const formData = new FormData()
-    formData.append('currentPassword', currentPassword)
-    formData.append('newPassword', newPassword)
-    formData.append('confirmNewPassword', confirmNewPassword)
     dispatch(updatePassword(currentPassword, newPassword, confirmNewPassword))
+    setCurrentPassword('')
+    setNewPassword('')
+    setConfirmNewPassword('')
   }
 
   useEffect(() => {
     if(error){
       toast.error(error)
+      dispatch(clearAllUserErrors())
     }
     if(isUpdated){
+      dispatch(getUser())
+      dispatch(resetProfile())
+    }
+    if(message){
       toast.success(message)
     }
-  }, [dispatch, isUpdated, error, loading])
+  }, [dispatch, isUpdated, error, message])
 
   return (
     <>

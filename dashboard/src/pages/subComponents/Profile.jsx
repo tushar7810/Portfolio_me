@@ -19,7 +19,7 @@ const Profile = () => {
               </div>
             </div>
             <div className='grid gap-6'>
-              <div className='flex flex-start lg:justify-between lg:items-center flex-col lg:flex-row gap-5'>
+              <div className='flex items-start lg:justify-between lg:items-center flex-col lg:flex-row gap-5'>
                   <div className='grid gap-2 w-full sm:w-72'>
                       <Label>Profile Image</Label>
                       <img 
