@@ -46,14 +46,14 @@ const Messages = () => {
 
   return (
     <>
-      <div className='min-h-[100vh] sm:gap-4 sm:py-4 sm:pl-20'>
+      <div className='min-h-[100vh] sm:gap-4 sm:py-4 sm:pl-20 sm:pr-6'>
           <Tabs>
             <TabsContent>
               <Card>
                 <CardHeader className='flex gap-4 sm:justify-between sm:flex-row sm:items-center'>
                   <CardTitle>Messages</CardTitle>
                 </CardHeader>
-                <CardContent className='grid sm:gird-cols-2 gap-4'>
+                <CardContent className='grid sm:grid-cols-2 gap-4 '>
                   {
                     messages && messages.length > 0 ? (
                       messages.map((element) => {
@@ -68,8 +68,12 @@ const Messages = () => {
                                 {element.subject}
                               </CardDescription>
                               <CardDescription className='text-slate-950' >
-                                <span className='font-bold mr-2' >Message:</span>
+                                <span className='font-bold mr-2' >Message :</span>
                                 {element.message}
+                              </CardDescription>
+                              <CardDescription className='text-slate-950' >
+                                <span className='font-bold mr-2'>Sent on :</span>
+                                {element.createdAt}
                               </CardDescription>
                               <CardFooter className='justify-end' >
                                 {

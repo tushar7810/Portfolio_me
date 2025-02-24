@@ -67,7 +67,7 @@ const UpdatePassword = () => {
             </div>
             <div className='grid gap-2'>
               <Label>Confirm Password</Label>
-              <Input type="text" 
+              <Input type="password" 
                 placeholder="Enter confirm Password"          
                 value={confirmNewPassword} 
                 onChange={(e) => setConfirmNewPassword(e.target.value)}
