@@ -15,8 +15,7 @@ const timelineSlice = createSlice({
             state.loading = true,
             state.message = null,
             state.timelines = [],
-            state.error = null,
-            state.message = null
+            state.error = null
         },
         getAllTimelinesSuccess(state , action){
             state.timelines = state.timelines,
@@ -24,14 +23,14 @@ const timelineSlice = createSlice({
             state.loading = false
         },
         getAllTimelinesFailed(){
-            state.timelines = action.payload,
-            state.error = null,
+            state.timelines = state.timelines,
+            state.error = action.payload,
             state.loading = false
         },
         deleteTimelinesRequest(state,action){
             state.message = null,
             state.error = null,
-            state.loading = false
+            state.loading = true
         },
         deleteTimelinesSuccess(state,action){
             state.message = action.payload,
