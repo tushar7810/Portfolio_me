@@ -7,7 +7,7 @@ import Skills from './pages/mainPages/Skills.jsx'
 import Timeline from './pages/mainPages/Timeline.jsx'
 import Project from './pages/mainPages/Project.jsx'
 import ViewProject from './pages/mainPages/ViewProject.jsx'
-import UpdateProject from './pages/mainPages/UpdateProject.jsx'
+import UpdateProject from './pages/subComponents/UpdateProject.jsx'
 import { ToastContainer } from 'react-toastify';
 
 import './App.css'

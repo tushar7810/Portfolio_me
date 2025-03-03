@@ -22,7 +22,7 @@ const messagesSlice = createSlice({
         },
         getAllMessagesFailed(state, action) {
             state.loading = false,
-            state.messages = state.message,
+            state.messages = state.messages,
             state.error = action.payload
         },
         deleteMessageRequest(state, action) {
