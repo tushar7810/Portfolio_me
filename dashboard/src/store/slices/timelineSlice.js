@@ -18,8 +18,8 @@ const timelineSlice = createSlice({
             state.error = null
         },
         getAllTimelinesSuccess(state , action){
-            state.timelines = state.timelines,
-            state.error = action.payload,
+            state.timelines = action.payload,
+            state.error = null,
             state.loading = false
         },
         getAllTimelinesFailed(){
@@ -70,7 +70,7 @@ const timelineSlice = createSlice({
     }
 })
 
-export const getAllTimeline = () => async() => {
+export const getAllTimeline = () => async(dispatch) => {
     dispatch(timelineSlice.actions.getAllTimelinesRequest())
     try {
         const {data} = await axios.get('/api/v1/timeline/getall' , {

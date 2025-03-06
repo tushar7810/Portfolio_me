@@ -15,6 +15,10 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getUser } from './store/slices/userSlice.js'
 import { getAllMessages } from './store/slices/messaegsSlice.js'
+import { getAllProject } from './store/slices/projectSlice.js'
+import { getAllSoftware } from './store/slices/softwareSlice.js'
+import { getAllTimeline } from './store/slices/timelineSlice.js'
+import { getAllSkills } from './store/slices/skillSlice.js'
 
 const App = () => {
 
@@ -23,6 +27,10 @@ const App = () => {
   useEffect(() => {
     dispatch(getUser())
     dispatch(getAllMessages())
+    dispatch(getAllProject())
+    dispatch(getAllSoftware())
+    dispatch(getAllTimeline())
+    dispatch(getAllSkills())
   }, [])
 
   return (
