@@ -62,6 +62,34 @@ export const deleteSkill = catchAsyncErrors(async(req,res,next) => {
         skill
     })
 })
+
+export const updateSkill = catchAsyncErrors(async(req,res,next) => {
+    const {id} = req.params
+    let skill = await Skill.findById(id)
+
+    if(!skill) {
+        return next(new ErrorHandler("Skill not found",404))
+    }
+    
+    const {proficiency} = req.body
+
+    skill = await Skill.findByIdAndUpdate(
+        id,
+        {proficiency},
+        {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false,
+        }
+    )
+
+    res.status(200).json({
+        success: true,
+        message: "Skill Updated!",
+        skill
+    });
+})
+
 export const getAllSkill = catchAsyncErrors(async(req,res,next) => {
     const skills = await Skill.find()
     return res.status(200).json({

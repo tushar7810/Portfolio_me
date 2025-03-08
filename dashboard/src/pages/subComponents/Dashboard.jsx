@@ -35,7 +35,7 @@ const Dashboard = () => {
     navigateTo('/manage/skills');
   }
   const goToManageTimeline = () => {
-    navigateTo('/manage/timeline')
+    navigateTo('/manage/timelines')
   }
   const goToManageProjects = () => {
     navigateTo('/manage/projects')
