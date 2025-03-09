@@ -136,10 +136,10 @@ export const addProject = (projectData) => async(dispatch) => {
     }
 }
 
-export const updateProject = (updatedProjectData) => async(dispatch) => {
+export const updateProject = (id,updatedProjectData) => async(dispatch) => {
     dispatch(projectSlice.actions.updateProjectRequest())
     try {
-        const {data} = await axios.put('/api/v1/project/update' , updatedProjectData ,
+        const {data} = await axios.put(`/api/v1/project/update/${id}` , updatedProjectData ,
             {
                 withCredentials: true,
                 headers: {
