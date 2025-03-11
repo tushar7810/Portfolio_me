@@ -18,7 +18,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Trash2, Home } from "lucide-react";
 import { useDispatch, useSelector } from 'react-redux';
-import { clearAllSkillErrors, getAllSkills, resetSkills, updateSkill } from '../../store/slices/skillSlice';
+import { clearAllSkillErrors, getAllSkills, resetSkills, updateSkill , deleteSkill } from '../../store/slices/skillSlice';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 

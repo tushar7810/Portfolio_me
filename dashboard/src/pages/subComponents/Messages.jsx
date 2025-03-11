@@ -60,8 +60,12 @@ const Messages = () => {
                         return (
                           <Card key={element._id} className='grid gap-2'>
                               <CardDescription className='text-slate-950' >
-                                <span className='font-bold mr-2' >Sender Name:</span>
+                                <span className='font-bold mr-2' >Sender Name :</span>
                                 {element.senderName}
+                              </CardDescription>
+                              <CardDescription className='text-slate-950' >
+                                <span className='font-bold mr-2' >Email :</span>
+                                {element.email}
                               </CardDescription>
                               <CardDescription className='text-slate-950' >
                                 <span className='font-bold mr-2' >Subject :</span>

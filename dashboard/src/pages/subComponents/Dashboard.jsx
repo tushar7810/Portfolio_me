@@ -25,9 +25,10 @@ import {
 } from '@/components/ui/table';
 import {Tabs , TabsContent} from '@/components/ui/tabs'
 import { clearAllSkillErrors } from '../../store/slices/skillSlice';
-// import { clearSoftwareErrors } from '../../store/slices/softwareSlice';
+// import { deleteSoftware} from '../../store/slices/softwareSlice';
 import { clearAllProjectErrors } from '../../store/slices/projectSlice';
 import { clearAllTimelineErrors } from '../../store/slices/timelineSlice';
+import SpecialLoadingButton from './SpecialLoadingButton';
 
 const Dashboard = () => {
   const navigateTo = useNavigate()
@@ -71,6 +72,7 @@ const Dashboard = () => {
   const handleDeleteSoftware = (id) => {
     setAppId(id);
     dispatch(deleteSoftware(id))
+    navigateTo('/')
   }
 
   useEffect(() => {

@@ -14,6 +14,7 @@ import { Trash2, Home } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAllTimelineErrors, deleteTimeline, getAllTimeline, resetTimelineSlice } from '../../store/slices/timelineSlice';
+import { toast } from 'react-toastify';
 
 const Timeline = () => {
   const navigateTo = useNavigate()

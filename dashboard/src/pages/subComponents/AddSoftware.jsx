@@ -33,6 +33,7 @@ const AddSoftware = () => {
     dispatch(addSoftware(formdata))
     setName('')
     setImage('')
+    setImagePreview('')
   }
 
   useEffect(() => {

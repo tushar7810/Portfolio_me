@@ -4,16 +4,17 @@ import { Message } from "../models/message.model.js";
 
 export const sendMessage = catchAsyncErrors(async(req,res,next) => {
     try {
-        const {senderName , subject , message} = req.body
-        if(!senderName || !subject || !message){
+        const {senderName , email , subject , message} = req.body
+        if(!senderName || !email || !subject || !message){
             return next(new ErrorHandler("Please fill full form", 400))
         }
+
         const data = await Message.create({
             senderName,
+            email,
             subject,
             message
         })
-
         return res.status(200).json({
             success: true,
             message: "Message sent",
