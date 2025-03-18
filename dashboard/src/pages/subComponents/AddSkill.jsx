@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Button } from "@/components/ui/button";
 import SpecialLoadingButton from "./SpecialLoadingButton";
-import { addNewSkill, clearAllSkillErrors, getAllSkills, resetSkills } from '../../store/slices/skillSlice';
+import { addNewSkill , clearAllSkillErrors , getAllSkills , resetSkills } from '../../store/slices/skillSlice';
 
 const AddSkill = () => {
   const [title , setTitle] = useState('')
