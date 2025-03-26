@@ -60,7 +60,7 @@ export function LoginForm({
               Forgot your password?
             </Link>
           </div>
-          <Input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder=''  className='text-black' required />
+          <Input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter password'  className='text-black' required />
         </div>
         {
           loading ? <SpecialLoadingButton content={"Logging In"}/> : <Button type="submit" className="w-full">

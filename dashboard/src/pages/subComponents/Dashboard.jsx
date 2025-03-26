@@ -75,6 +75,8 @@ const Dashboard = () => {
     navigateTo('/')
   }
 
+  
+
   useEffect(() => {
     if(skillError){
       toast.error(skillError);
@@ -124,7 +126,7 @@ const Dashboard = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <Button>Visit Portfolio</Button>
+                  <Button >Visit Portfolio</Button>
                 </CardFooter>
               </Card>
               <Card className="flex flex-col justify-center">

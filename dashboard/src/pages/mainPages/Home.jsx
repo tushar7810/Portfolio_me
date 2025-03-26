@@ -213,7 +213,7 @@ const Home = () => {
           </nav>
         </aside>
         <header className='sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background
-            px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 max-[900px]:h-[100px]'>
+            px-4 sm:static sm:h-auto sm:border-0 lg:bg-transparent sm:px-6 max-[900px]:h-[100px]'>
             <Sheet>
               <SheetTrigger asChild>
                   <Button size="icon" variant="outline" className='sm:hidden'>
