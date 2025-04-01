@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom'
 import Footer from './pages/Footer'
 import Home from './pages/Home'
 import ProjectView from './pages/Projects'
-import { ModeToggle } from './components/mode-toggle'
 import { ToastContainer } from 'react-toastify';
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
     <>
       <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
         <Router>
-          <ModeToggle />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/project/:id' element={<ProjectView />} />

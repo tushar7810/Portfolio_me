@@ -119,7 +119,7 @@ export const addNewSkill = (skillData) => async(dispatch) => {
 export const deleteSkill = (id) => async(dispatch) => {
     dispatch(skillSlice.actions.deleteSkillRequest())
     try {
-        const {data} = await axios.post(`/api/v1/skill/delete/${id}`,
+        const {data} = await axios.delete(`/api/v1/skill/delete/${id}`,
             {
                 withCredentials: true
             }

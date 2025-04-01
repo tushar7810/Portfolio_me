@@ -74,7 +74,7 @@ const AddTimeline = () => {
                     <Label htmlFor='to' className='block text-sm font-medium leading-6 text-gray-900' >From</Label>
                     <div className='mt-2'>
                       <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600'>
-                        <Input type="date" placeholder='Starting Date' value={from} onChange={(e) => setFrom(e.target.value)}
+                        <Input type="text" placeholder='Starting Date' value={from} onChange={(e) => setFrom(e.target.value)}
                         className='block flex-1 border-0  bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'/>
                       </div>
                     </div>
@@ -83,7 +83,7 @@ const AddTimeline = () => {
                     <Label htmlFor='from' className='block text-sm font-medium leading-6 text-gray-900' >To</Label>
                     <div className='mt-2'>
                       <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600'>
-                        <Input type="date" placeholder='Matriculation' value={to} onChange={(e) => setTo(e.target.value)}
+                        <Input type="text" placeholder='Matriculation' value={to} onChange={(e) => setTo(e.target.value)}
                         className='block flex-1 border-0  bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'/>
                       </div>
                     </div>

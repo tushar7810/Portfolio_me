@@ -46,7 +46,7 @@ const ViewProject = () => {
       navigateTo('/')
     }
 
-    const descriptionList = description.split("-" && ". ")
+    const descriptionList = description.split(" -" && ". ")
     const technologiesList = technologies.split(", ")
 
   return (
