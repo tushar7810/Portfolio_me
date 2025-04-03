@@ -91,7 +91,7 @@ const projectSlice = createSlice({
 export const getAllProject = () => async(dispatch) => {
     dispatch(projectSlice.actions.getAllProjectRequest())
     try {
-        const {data} = await axios.get('/api/v1/project/allProject' , 
+        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/project/allProject` , 
             {
                 withCredentials: true
             }
@@ -106,7 +106,7 @@ export const getAllProject = () => async(dispatch) => {
 export const deleteProject = (id) => async(dispatch) => {
     dispatch(projectSlice.actions.deleteProjectRequest())
     try {
-        const {data} = await axios.delete(`/api/v1/project/delete/${id}`,
+        const {data} = await axios.delete(`${process.env.BACKEND_URL}/api/v1/project/delete/${id}`,
             {
                 withCredentials: true
             }
@@ -121,7 +121,7 @@ export const deleteProject = (id) => async(dispatch) => {
 export const addProject = (projectData) => async(dispatch) => {
     dispatch(projectSlice.actions.addNewProjectRequest())
     try {
-        const {data} = await axios.post('/api/v1/project/post' , projectData , 
+        const {data} = await axios.post(`${process.env.BACKEND_URL}/api/v1/project/post` , projectData , 
             {
                 withCredentials: true,
                 headers: {
@@ -139,7 +139,7 @@ export const addProject = (projectData) => async(dispatch) => {
 export const updateProject = (id,updatedProjectData) => async(dispatch) => {
     dispatch(projectSlice.actions.updateProjectRequest())
     try {
-        const {data} = await axios.put(`/api/v1/project/update/${id}` , updatedProjectData ,
+        const {data} = await axios.put(`${process.env.BACKEND_URL}/api/v1/project/update/${id}` , updatedProjectData ,
             {
                 withCredentials: true,
                 headers: {
@@ -163,5 +163,3 @@ export const resetProject = () => (dispatch)=> {
 }
 
 export default projectSlice.reducer
-
-// https://tathya.uidai.gov.in/access/login?role=resident

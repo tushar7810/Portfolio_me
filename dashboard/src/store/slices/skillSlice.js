@@ -86,7 +86,7 @@ const skillSlice = createSlice({
 export const getAllSkills = () => async(dispatch) => {
     dispatch(skillSlice.actions.getAllSkillRequest())
     try {
-        const {data} = await axios.get("/api/v1/skill/all" , 
+        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/skill/all` , 
             {
                 withCredentials: true
             }
@@ -101,7 +101,7 @@ export const getAllSkills = () => async(dispatch) => {
 export const addNewSkill = (skillData) => async(dispatch) => {
     dispatch(skillSlice.actions.addNewSkillRequest())
     try {
-        const {data} = await axios.post("/api/v1/skill/add" , skillData ,
+        const {data} = await axios.post(`${process.env.BACKEND_URL}/api/v1/skill/add` , skillData ,
             {
                 withCredentials: true,
                 headers: {
@@ -119,7 +119,7 @@ export const addNewSkill = (skillData) => async(dispatch) => {
 export const deleteSkill = (id) => async(dispatch) => {
     dispatch(skillSlice.actions.deleteSkillRequest())
     try {
-        const {data} = await axios.delete(`/api/v1/skill/delete/${id}`,
+        const {data} = await axios.delete(`${process.env.BACKEND_URL}/api/v1/skill/delete/${id}`,
             {
                 withCredentials: true
             }
@@ -134,7 +134,7 @@ export const deleteSkill = (id) => async(dispatch) => {
 export const updateSkill = (id,proficiency) => async(dispatch) => {
     dispatch(skillSlice.actions.updateSkillRequest())
     try {
-        const response = await axios.put(`/api/v1/skill/update/${id}` , {proficiency} , 
+        const response = await axios.put(`${process.env.BACKEND_URL}/api/v1/skill/update/${id}` , {proficiency} , 
             {
                 withCredentials: true,
                 headers: {

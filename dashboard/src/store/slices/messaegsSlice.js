@@ -56,7 +56,7 @@ const messagesSlice = createSlice({
 export const getAllMessages = () => async(dispatch) => {
     dispatch(messagesSlice.actions.getAllMessagesRequest())
     try {
-        const {data} = await axios.get('/api/v1/message/getall',
+        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/message/getall`,
             {
                 withCredentials: true
             }
@@ -70,7 +70,7 @@ export const getAllMessages = () => async(dispatch) => {
 export const deleteMessage = (id) => async(dispatch) => {
     dispatch(messagesSlice.actions.deleteMessageRequest())
     try {
-        const {data} = await axios.delete(`/api/v1/message/delete/${id}`,
+        const {data} = await axios.delete(`${process.env.BACKEND_URL}/api/v1/message/delete/${id}`,
             {
                 withCredentials: true
             }

@@ -49,7 +49,7 @@ const forgotResetPass = createSlice({
 export const forgotPassword = (email) => async(dispatch) => {
     dispatch(forgotResetPass.actions.forgotPasswordRequest())
     try {
-        const {data} = await axios.post("/api/v1/user/password/forgot" , {email} , 
+        const {data} = await axios.post(`${process.env.BACKEND_URL}/api/v1/user/password/forgot` , {email} , 
             {
                 withCredentials: true,
                 headers: {
@@ -66,7 +66,7 @@ export const forgotPassword = (email) => async(dispatch) => {
 export const resetPassword = (token , password , conformPassword) => async(dispatch) => {
     dispatch(forgotResetPass.actions.resetPasswordRequest())
     try {
-        const {data} = await axios.put(`/api/v1/user/password/reset/${token}` , {password , conformPassword} , 
+        const {data} = await axios.put(`${process.env.BACKEND_URL}/api/v1/user/password/reset/${token}` , {password , conformPassword} , 
             {
                 withCredentials: true,
                 headers: {

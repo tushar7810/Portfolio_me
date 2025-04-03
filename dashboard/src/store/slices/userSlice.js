@@ -113,7 +113,7 @@ export const login = (email,password) => async(dispatch) => {
     dispatch(userSlice.actions.loginRequest())
     try {
         const {data} = await axios.post(
-            "/api/v1/user/login" ,
+            `${process.env.BACKEND_URL}/api/v1/user/login` ,
             {email,password} , 
             {withCredentials: true , headers: {"Content-Type": "application/json"}}
         )
@@ -129,7 +129,7 @@ export const getUser = () => async(dispatch) => {
     dispatch(userSlice.actions.loadUserRequest())
     try {
         const {data} = await axios.get(
-            "/api/v1/user/getUser" ,
+            `${process.env.BACKEND_URL}/api/v1/user/getUser` ,
             {withCredentials: true}
         )
         dispatch(userSlice.actions.loadUserSuccess(data.user));
@@ -143,7 +143,7 @@ export const getUser = () => async(dispatch) => {
 export const logout = () => async(dispatch) => {
     try {
         const {data} = await axios.get(
-            "/api/v1/user/logout" ,
+            `${process.env.BACKEND_URL}/api/v1/user/logout` ,
             {withCredentials: true}
         )
         dispatch(userSlice.actions.logoutSuccess(data.message));
@@ -157,7 +157,7 @@ export const logout = () => async(dispatch) => {
 export const updatePassword = (currentPassword, newPassword, conformNewPassword) => async(dispatch) => {
     dispatch(userSlice.actions.updatePasswordRequest())
     try {
-        const {data} = await axios.put("/api/v1/user/update/password",{currentPassword, newPassword, conformNewPassword},
+        const {data} = await axios.put(`${process.env.BACKEND_URL}/api/v1/user/update/password`,{currentPassword, newPassword, conformNewPassword},
             {
                 withCredentials: true,
                 headers: {"Content-Type" : "application/json"}    
@@ -173,7 +173,7 @@ export const updatePassword = (currentPassword, newPassword, conformNewPassword)
 export const updateProfile = (newData) => async(dispatch) => {
     dispatch(userSlice.actions.updateProfileRequest())
     try {
-        const {data} = await axios.put("/api/v1/user/update/profile", newData,
+        const {data} = await axios.put(`${process.env.BACKEND_URL}/api/v1/user/update/profile`, newData,
             {
                 withCredentials: true,
                 headers: {"Content-Type" : "multipart/form-data"}    

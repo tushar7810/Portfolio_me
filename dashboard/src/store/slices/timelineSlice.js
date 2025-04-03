@@ -73,7 +73,7 @@ const timelineSlice = createSlice({
 export const getAllTimeline = () => async(dispatch) => {
     dispatch(timelineSlice.actions.getAllTimelinesRequest())
     try {
-        const {data} = await axios.get('/api/v1/timeline/getall' , {
+        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/timeline/getall` , {
             withCredentials: true
         })
         dispatch(timelineSlice.actions.getAllTimelinesSuccess(data.timelines))
@@ -86,7 +86,7 @@ export const getAllTimeline = () => async(dispatch) => {
 export const addTimeline = (newData) => async(dispatch) => {
     dispatch(timelineSlice.actions.addTimelinesRequest())
     try {
-        const {data} = await axios.post('/api/v1/timeline/add' , newData ,
+        const {data} = await axios.post(`${process.env.BACKEND_URL}/api/v1/timeline/add` , newData ,
             {
                 withCredentials: true,
                 headers: {"Content-Type": "application/json"}
@@ -102,7 +102,7 @@ export const addTimeline = (newData) => async(dispatch) => {
 export const deleteTimeline = (id) => async(dispatch) => {
     dispatch(timelineSlice.actions.deleteTimelinesRequest())
     try {
-        const {data} = await axios.delete(`/api/v1/timeline/delete/${id}` , 
+        const {data} = await axios.delete(`${process.env.BACKEND_URL}/api/v1/timeline/delete/${id}` , 
             {
                 withCredentials: true
             }

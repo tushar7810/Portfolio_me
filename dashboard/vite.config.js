@@ -11,10 +11,8 @@ dotenv.config({
 })
 
 export default defineConfig({
-  server: {
-    proxy: {
-      "/api" : `${process.env.BACKEND_URL}`
-    }
+  define:{
+    'process.env.BACKEND_URL': JSON.stringify(process.env.BACKEND_URL),
   },
   plugins: [
     react(),

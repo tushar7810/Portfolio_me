@@ -71,7 +71,7 @@ const softwareSlice = createSlice({
 export const getAllSoftware = () => async(dispatch) => {
     dispatch(softwareSlice.actions.getAllSoftwareRequest())
     try {
-        const {data} = await axios.get('/api/v1/software/all' , 
+        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/software/all` , 
             {
                 withCredentials: true
             }
@@ -85,7 +85,7 @@ export const getAllSoftware = () => async(dispatch) => {
 export const addSoftware = (softwareData) => async(dispatch) => {
     dispatch(softwareSlice.actions.addSoftwareRequest())
     try{
-        const {data} = await axios.post('/api/v1/software/add' , softwareData ,
+        const {data} = await axios.post(`${process.env.BACKEND_URL}/api/v1/software/add` , softwareData ,
             {
                 withCredentials: true,
                 headers: {"Content-Type" : "multipart/form-data"}
@@ -101,7 +101,7 @@ export const addSoftware = (softwareData) => async(dispatch) => {
 export const deleteSoftware = (id) => async(dispatch) => {
     dispatch(softwareSlice.actions.deleteSoftwareRequest())
     try {
-        const {data} = await axios.delete(`/api/v1/software/delete/${id}`,
+        const {data} = await axios.delete(`${process.env.BACKEND_URL}/api/v1/software/delete/${id}`,
             {
                 withCredentials: true
             }
