@@ -14,6 +14,11 @@ export default defineConfig({
   define:{
     'process.env.BACKEND_URL': JSON.stringify(process.env.BACKEND_URL),
   },
+  server: {
+    proxy: {
+      '/api': `${process.env.BACKEND_URL}`,
+    },
+  },
   plugins: [
     react(),
     tailwindcss()
