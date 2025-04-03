@@ -7,17 +7,16 @@ import dotenv from 'dotenv'
 dotenv.config({
   path: ".env"
 })
+
 // https://vite.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
-      "/api" : `${process.env.BACKEND_URL}`
-    }
-  },
   plugins: [
     react(), 
     tailwindcss()
   ],
+  define:{
+    'process.env.BACKEND_URL': JSON.stringify(process.env.BACKEND_URL),
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

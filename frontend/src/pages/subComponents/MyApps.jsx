@@ -6,8 +6,7 @@ const MyApps = () => {
   const [apps, setApps] = useState([]);
   useEffect(() => {
     const getMyApps = async () => {
-      const { data } = await axios.get(
-        "/api/v1/software/all",
+      const { data } = await axios.get(`${process.env.BACKEND_URL}/api/v1/software/all`,
         { withCredentials: true }
       );
       setApps(data.softwares);

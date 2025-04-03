@@ -15,8 +15,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     await axios
-      .post(
-        "/api/v1/message/send",{ senderName,email, subject, message },
+      .post(`${process.env.BACKEND_URL}/api/v1/message/send`,{ senderName,email, subject, message },
         {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },

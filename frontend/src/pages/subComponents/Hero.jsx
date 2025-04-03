@@ -16,7 +16,7 @@ const Hero = () => {
   const [user, setUser] = useState({});
   useEffect(() => {
     const getMyProfile = async () => {
-      const { data } = await axios.get('/api/v1/user/me/portfolio',
+      const { data } = await axios.get(`${process.env.BACKEND_URL}/api/v1/user/me/portfolio`,
         {
           withCredentials: true
         }
