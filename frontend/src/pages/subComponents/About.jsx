@@ -12,7 +12,7 @@ const About = () => {
             background: "hsl(222.2 84% 4.9%)",
           }}
         >
-          ABOUT <span className="text-tubeLight-effect ">ME</span>
+           <span className="text-tubeLight-effect ">ABOUT ME</span>
         </h1>
         <span className="absolute w-full h-1 top-7 sm:top-7 md:top-8 lg:top-11 z-[-1] bg-slate-200"></span>
       </div>
@@ -32,7 +32,7 @@ const About = () => {
           </div>
           <div className="flex justify-center flex-col tracking-[1px] text-xl gap-5">
             <p>
-              My name is Tushar Sil. I am an persuing B.Tech in Electronics and Communication 
+              My name is Tushar Sil. I am persuing B.Tech in Electronics and Communication 
               Engineering department form Academy of Technology . I work as
               a full stack web developer. But my interest of field is Backend Development. 
             </p>

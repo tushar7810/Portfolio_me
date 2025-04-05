@@ -154,11 +154,11 @@ export const updateProject = (id,updatedProjectData) => async(dispatch) => {
     }
 }
 
-export const clearAllProjectErrors =  () => (dispatch) => {
+export const clearAllProjectErrors =  () => ( dispatch ) => {
     dispatch(projectSlice.actions.clearAllErrors())
 }
 
-export const resetProject = () => (dispatch)=> {
+export const resetProject = () => ( dispatch )=> {
     dispatch(projectSlice.actions.resetProjectSlice())
 }
 

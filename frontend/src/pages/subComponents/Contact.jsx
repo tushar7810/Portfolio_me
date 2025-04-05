@@ -66,7 +66,7 @@ const Contact = () => {
             <Input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter email"
+              placeholder="Enter your email"
             />
           </div>
           <div className="flex flex-col gap-2 px-1.5">
