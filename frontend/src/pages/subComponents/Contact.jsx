@@ -57,6 +57,7 @@ const Contact = () => {
             <Label className="text-xl">Your Name</Label>
             <Input
               value={senderName}
+              type="text"
               onChange={(e) => setSenderName(e.target.value)}
               placeholder="Your Name"
             />
@@ -65,6 +66,7 @@ const Contact = () => {
             <Label className="text-xl">Email</Label>
             <Input
               value={email}
+              type="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
             />
@@ -73,6 +75,7 @@ const Contact = () => {
             <Label className="text-xl">Subject</Label>
             <Input
               value={subject}
+              type="text"
               onChange={(e) => setSubject(e.target.value)}
               placeholder="Subject"
             />
@@ -81,6 +84,7 @@ const Contact = () => {
             <Label className="text-xl">Message</Label>
             <Input
               value={message}
+              type="text"
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Your Message"
             />
