@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Link, useNavigate } from 'react-router-dom';
 import SpecialLoadingButton from "./SpecialLoadingButton"
 import {toast} from 'react-toastify'
-import { getUser, resetProfile, updateProfile } from '../../store/slices/userSlice';
+import { getUser, resetProfile, updateProfile , clearAllUserErrors } from '../../store/slices/userSlice';
 
 const UpdateProfile = () => {
   const { user, loading, error, isUpdated, message } = useSelector((state) => state.user)

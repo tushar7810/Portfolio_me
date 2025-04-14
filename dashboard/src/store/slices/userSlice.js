@@ -112,8 +112,7 @@ const userSlice = createSlice({
 export const login = (email,password) => async(dispatch) => {
     dispatch(userSlice.actions.loginRequest())
     try {
-        const {data} = await axios.post(
-            `${process.env.BACKEND_URL}/api/v1/user/login` ,
+        const {data} = await axios.post(`${process.env.BACKEND_URL}/api/v1/user/login` ,
             {email,password} , 
             {withCredentials: true , headers: {"Content-Type": "application/json"}}
         )
@@ -128,22 +127,19 @@ export const login = (email,password) => async(dispatch) => {
 export const getUser = () => async(dispatch) => {
     dispatch(userSlice.actions.loadUserRequest())
     try {
-        const {data} = await axios.get(
-            `${process.env.BACKEND_URL}/api/v1/user/getUser` ,
+        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/user/getUser` ,
             {withCredentials: true}
         )
         dispatch(userSlice.actions.loadUserSuccess(data.user));
         dispatch(userSlice.actions.clearAllErrors())
     } catch (error) {
         dispatch(userSlice.actions.loadUserFailed(error.response.data.message))
-        console.log(error);
     }
 }
 
 export const logout = () => async(dispatch) => {
     try {
-        const {data} = await axios.get(
-            `${process.env.BACKEND_URL}/api/v1/user/logout` ,
+        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/user/logout` ,
             {withCredentials: true}
         )
         dispatch(userSlice.actions.logoutSuccess(data.message));
@@ -189,7 +185,6 @@ export const updateProfile = (newData) => async(dispatch) => {
 
 export const resetProfile = () => (dispatch) => {
     dispatch(userSlice.actions.updateProfileReset())
-    
 }
 
 export const clearAllUserErrors = () => (dispatch) => {

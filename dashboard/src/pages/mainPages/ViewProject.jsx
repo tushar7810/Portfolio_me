@@ -19,7 +19,7 @@ const ViewProject = () => {
 
     useEffect(() => {
       const getProject = async() => {
-        await axios.get(`/api/v1/project/getOne/${id}`,
+        await axios.get(`${process.env.BACKEND_URL}/api/v1/project/getOne/${id}`,
           {
             withCredentials: true
           }
