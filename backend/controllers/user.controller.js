@@ -301,14 +301,15 @@ export const getResume = catchAsyncErrors(async(req,res,next) => {
         return next('User not found', 404)
     }
     const respnseofResume = await User.findOne({resume: user.resume}).select("resume")
-
-    if(!respnseofResume){
+    const requiredURL = respnseofResume.resume.url
+    console.log(requiredURL);
+    if(!requiredURL){
         return next("Resume not found",404)
     }
 
     return res.status(200).json({
         success: true , 
         message : "Resume founded!",
-        respnseofResume
+        requiredURL
     })
 })
