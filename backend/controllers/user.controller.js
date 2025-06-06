@@ -292,3 +292,23 @@ export const resetPassword = catchAsyncErrors(async(req,res,next) => {
 
     sendCookieToken(user,"Reset Password Successfully",200,res)
 })
+
+export const getResume = catchAsyncErrors(async(req,res,next) => {
+    const id = `${process.env.PORTFOLIO_ID}`
+    const user = await User.findById(id);
+
+    if(!user){
+        return next('User not found', 404)
+    }
+    const respnseofResume = await User.findOne({resume: user.resume}).select("resume")
+
+    if(!respnseofResume){
+        return next("Resume not found",404)
+    }
+
+    return res.status(200).json({
+        success: true , 
+        message : "Resume founded!",
+        respnseofResume
+    })
+})

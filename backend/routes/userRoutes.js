@@ -1,6 +1,6 @@
 import express from 'express'
 import { isAuthenticated } from '../middleware/auth.js'
-import { register, login , logout , getUser , updateProfle , updatePassword , getUserForPortfolio, forgotPassword, resetPassword } from '../controllers/user.controller.js'
+import { register, login , logout , getUser , updateProfle , updatePassword , getUserForPortfolio, forgotPassword, resetPassword, getResume } from '../controllers/user.controller.js'
 
 const router = express.Router()
 
@@ -13,6 +13,7 @@ router.put('/update/password' ,isAuthenticated, updatePassword)
 router.get('/me/portfolio' , getUserForPortfolio)
 router.post('/password/forgot' , forgotPassword)
 router.put('/password/reset/:token' , resetPassword)
+router.get('/resume',getResume)
 
 
 export default router
