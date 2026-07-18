@@ -27,14 +27,14 @@ const Hero = () => {
   }, [])
   return (
     <div className='w-full'>
-      <div className='flex items-center gap-2 mb-2'>
-        <span className='bg-green-400 rounded-full w-2 h-2'></span>
-        <p>Online</p>
+      <div className='flex items-center gap-3 mb-4'>
+        <span className='bg-green-400 rounded-full w-3 h-3 animate-pulse'></span>
+        <p className='text-slate-300 font-medium'>Available to work</p>
       </div>
-      <h2 className='overflow-x-hidden text-[1.3rem] sm:text-[1.7rem] md:text-[2.2rem] lg:text-[2.8rem] tracking-[2px] mb-4'>
-        Hello I'm {user.fullname}
+      <h2 className='overflow-x-hidden text-[1.5rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[3rem] tracking-[2px] mb-2 text-white font-bold'>
+        Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">{user.fullname}</span>
       </h2>
-      <h2 className='text-tubeLight-effect overflow-x-hidden text-[1.3rem] sm:text-[1.7rem] md:text-[2.2rem] lg:text-[2.8rem] tracking-[15px]'>
+      <h2 className='text-tubeLight-effect overflow-x-hidden text-[1.5rem] sm:text-[1.9rem] md:text-[2.4rem] lg:text-[3rem] tracking-[8px] mb-6 sm:mb-8'>
         <Typewriter
           words={['student', 'Full Stack Developer', 'YouTuber',]}
           loop={15}
@@ -45,27 +45,29 @@ const Hero = () => {
           delaySpeed={1000}
         />
       </h2>
-      <div className="w-fit px-5 py-2 bg-slate-50 rounded-[20px] flex gap-5 
-      items-center mt-4 md:mt-8 lg:mt-10">
-        <Link to={"https://www.youtube.com/@Informertushar"} target="_blank">
-          <FaYoutube className="text-red-500 w-7 h-7" />
+      
+      <div className="w-fit px-6 sm:px-8 py-3 bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700 rounded-full flex gap-4 
+      items-center mt-6 md:mt-8 lg:mt-10 hover:border-cyan-400 transition-all hover:shadow-lg hover:shadow-cyan-500/40">
+        <Link to={"https://www.youtube.com/@Informertushar"} target="_blank" className="hover:scale-125 transition-transform">
+          <FaYoutube className="text-red-500 w-5 h-5 sm:w-6 sm:h-6" />
         </Link>
-        <Link to={user.instagramURL} target="_blank">
-          <FaInstagram className="text-pink-500 w-7 h-7" />
+        <Link to={user.instagramURL} target="_blank" className="hover:scale-125 transition-transform">
+          <FaInstagram className="text-pink-500 w-5 h-5 sm:w-6 sm:h-6" />
         </Link>
-        <Link to={user.facebookURL} target="_blank">
-          <FaFacebook className="text-blue-800 w-7 h-7" />
+        <Link to={user.facebookURL} target="_blank" className="hover:scale-125 transition-transform">
+          <FaFacebook className="text-blue-600 w-5 h-5 sm:w-6 sm:h-6" />
         </Link>
-        <Link to={user.linkedInURL} target="_blank">
-          <IoLogoLinkedin className="text-sky-600 w-7 h-7" />
+        <Link to={user.linkedInURL} target="_blank" className="hover:scale-125 transition-transform">
+          <IoLogoLinkedin className="text-sky-600 w-5 h-5 sm:w-6 sm:h-6" />
         </Link>
-        <Link to={user.twitterURL} target="_blank">
-          <FaXTwitter className="text-black w-7 h-7" />
+        <Link to={user.twitterURL} target="_blank" className="hover:scale-125 transition-transform">
+          <FaXTwitter className="text-slate-400 w-5 h-5 sm:w-6 sm:h-6" />
         </Link>
       </div>
-      <div className="mt-4 md:mt-8 lg:mt-10  flex gap-3">
+      
+      <div className="mt-6 md:mt-8 lg:mt-10 flex gap-3 flex-wrap">
         <Link to={user.githubURL} target="_blank">
-          <Button className="rounded-[30px] flex items-center gap-2 flex-row cursor-pointer">
+          <Button className="rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyan-400 text-white flex items-center gap-2 flex-row cursor-pointer transition-all hover:shadow-lg hover:shadow-cyan-500/30 font-semibold">
             <span>
               <IoLogoGithub />
             </span>
@@ -73,16 +75,17 @@ const Hero = () => {
           </Button>
         </Link>
         <Link to="/resume">
-          <Button className="rounded-[30px] flex items-center gap-2 flex-row cursor-pointer">
+          <Button className="rounded-lg bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white flex items-center gap-2 flex-row cursor-pointer transition-all hover:shadow-lg hover:shadow-cyan-500/60 font-semibold">
             <span>
-              <ExternalLink />
+              <ExternalLink size={18} />
             </span>
-            <span>Resume </span>
+            <span>Resume</span>
           </Button>
         </Link>
       </div>
-      <p className="mt-8 text-xl tracking-[2px]">{user.aboutMe}</p>
-      <hr className="my-8 md::my-10 " />
+      
+      <p className="mt-8 text-base sm:text-lg text-slate-300 tracking-[1px] leading-relaxed max-w-3xl">{user.aboutMe}</p>
+      <hr className="my-8 md:my-10 border-slate-700" />
     </div >
   );
 }

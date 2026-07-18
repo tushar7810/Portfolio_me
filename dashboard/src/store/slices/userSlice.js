@@ -163,7 +163,7 @@ export const updatePassword = (currentPassword, newPassword, conformNewPassword)
         dispatch(userSlice.actions.clearAllErrors())
 
     } catch (error) {
-        dispatch(userSlice.actions.updatePasswordFailed(error.response.data.message))
+        dispatch(userSlice.actions.updatePasswordFailed(error.response?.data?.message || "An Error occured"))
     }
 }
 export const updateProfile = (newData) => async(dispatch) => {

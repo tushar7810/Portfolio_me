@@ -11,11 +11,11 @@ dotenv.config({
 })
 
 export default defineConfig({
-  // server: {
-  //   proxy: {
-  //     '/api': `${process.env.BACKEND_URL}`,
-  //   },
-  // },
+  server: {
+    proxy: {
+      '/api': `${process.env.BACKEND_URL}`,
+    },
+  },
   plugins: [
     react(),
     tailwindcss()

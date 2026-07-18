@@ -129,7 +129,7 @@ export const addProject = (projectData) => async(dispatch) => {
                 }
             }
         )
-        dispatch(projectSlice.actions.addNewProjectSuccess(data.message))
+        dispatch(projectSlice.actions.addNewProjectSuccess(data.projects))
         dispatch(project.actions.clearAllErrors())
     } catch (error) {
         dispatch(projectSlice.actions.addNewProjectFailed(error.response.data.message))

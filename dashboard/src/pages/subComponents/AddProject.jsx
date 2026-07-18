@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useDispatch, useSelector } from 'react-redux';
-import { addProject, clearAllProjectErrors, getAllProject, resetProject } from '../../store/slices/projectSlice';
+import { addProject, clearAllProjectErrors, getAllProject, resetProject } from '../../store/slices/projectSlice.js';
 import { toast } from 'react-toastify';
 import { Link } from 'lucide-react'
 import SpecialLoadingButton from './SpecialLoadingButton'

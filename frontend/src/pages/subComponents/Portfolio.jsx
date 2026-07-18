@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Portfolio = () => {
   const [viewAll, setViewAll] = useState(false);
@@ -45,16 +46,45 @@ const Portfolio = () => {
         </h1>
         <span className="absolute w-full h-1 top-7 sm:top-7 md:top-8 lg:top-11 z-[-1] bg-slate-200"></span>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {viewAll
           ? projects &&
             projects.map((element) => {
               return (
                 <Link to={`/project/${element._id}`} key={element._id}>
-                  <img
-                    src={element.projectBanner && element.projectBanner.url}
-                    alt={element.title}
-                  />
+                  <Card className="overflow-hidden group cursor-pointer h-full bg-gradient-to-br from-slate-900/50 to-primary/15 border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/40">
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={element.projectBanner && element.projectBanner.url}
+                        alt={element.title}
+                        className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <div className="flex items-center gap-2 text-white">
+                          <span>View Project</span>
+                          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-cyan-400 transition-colors">
+                        {element.title}
+                      </h3>
+                      <p className="text-sm text-slate-400 line-clamp-2 mb-3">
+                        {element.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {element.technologies && element.technologies.split(", ").slice(0, 3).map((tech, idx) => (
+                          <span key={idx} className="text-xs bg-gradient-to-r from-cyan-500/30 to-purple-500/30 text-cyan-300 px-2 py-1 rounded border border-cyan-400/50">
+                            {tech}
+                          </span>
+                        ))}
+                        {element.technologies && element.technologies.split(", ").length > 3 && (
+                          <span className="text-xs text-slate-400">+{element.technologies.split(", ").length - 3} more</span>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
                 </Link>
               );
             })
@@ -62,17 +92,46 @@ const Portfolio = () => {
             projects.slice(0, 9).map((element) => {
               return (
                 <Link to={`/project/${element._id}`} key={element._id}>
-                  <img
-                    src={element.projectBanner && element.projectBanner.url}
-                    alt={element.title}
-                  />
+                  <Card className="overflow-hidden group cursor-pointer h-full bg-slate-900/50 border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/40">
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={element.projectBanner && element.projectBanner.url}
+                        alt={element.title}
+                        className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <div className="flex items-center gap-2 text-white">
+                          <span>View Project</span>
+                          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-cyan-400 transition-colors">
+                        {element.title}
+                      </h3>
+                      <p className="text-sm text-slate-400 line-clamp-2 mb-3">
+                        {element.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {element.technologies && element.technologies.split(", ").slice(0, 3).map((tech, idx) => (
+                          <span key={idx} className="text-xs bg-gradient-to-r from-cyan-500/30 to-purple-500/30 text-cyan-300 px-2 py-1 rounded border border-cyan-400/50">
+                            {tech}
+                          </span>
+                        ))}
+                        {element.technologies && element.technologies.split(", ").length > 3 && (
+                          <span className="text-xs text-slate-400">+{element.technologies.split(", ").length - 3} more</span>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
                 </Link>
               );
             })}
       </div>
       {projects && projects.length > 9 && (
         <div className="w-full text-center my-9">
-          <Button className="w-52" onClick={() => setViewAll(!viewAll)}>
+          <Button className="w-52 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 hover:shadow-lg hover:shadow-cyan-500/60 transition-all" onClick={() => setViewAll(!viewAll)}>
             {viewAll ? "Show Less" : "Show More"}
           </Button>
         </div>
