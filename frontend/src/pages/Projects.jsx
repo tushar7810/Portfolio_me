@@ -4,10 +4,13 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Home, Github, ExternalLink } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const ProjectView = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [features, setFeatures] = useState("");
   const [technologies, setTechnologies] = useState("");
   const [stack, setStack] = useState("");
   const [gitRepoLink, setGitRepoLink] = useState("");
@@ -19,12 +22,13 @@ const ProjectView = () => {
 
   useEffect(() => {
     const getProject = async () => {
-        const {data} = await axios.get(`${process.env.BACKEND_URL}/api/v1/project/getOne/${id}`, {
+        const data = await axios.get(`${process.env.BACKEND_URL}/api/v1/project/getOne/${id}`, {
           withCredentials: true,
         })
         .then((res) => {
           setTitle(res.data.project.title);
           setDescription(res.data.project.description);
+          setFeatures(res.data.project.features);
           setStack(res.data.project.stack);
           setDeployed(res.data.project.deployed);
           setTechnologies(res.data.project.technologies);
@@ -64,13 +68,13 @@ const ProjectView = () => {
               </div>
               <Button 
                 onClick={handleReturnToPortfolio}
-                className="rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 hover:shadow-lg hover:shadow-cyan-500/60 transition-all"
+                className="rounded-lg bg-gradient-to-b from-black to-primary/40 border border-primary/20 hover:from-black hover:to-primary/50 hover:shadow-lg hover:shadow-primary/60 transition-all"
               >
-                <Home size={20} />
+                <Home size={20} className="text-primary text-bold" />
               </Button>
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-400/50 transition-all hover:shadow-lg hover:shadow-cyan-500/30">
+            <Card className="bg-linear-to-bl from-slate-900/50 to-primary/15 border border-primary/20 rounded-xl overflow-hidden  hover:border-primary/60 transition-all hover:shadow-lg hover:shadow-cyan-500/30">
               <img
                 src={
                   projectBannerPreview
@@ -80,11 +84,11 @@ const ProjectView = () => {
                 alt="projectBanner"
                 className="w-full h-auto object-cover"
               />
-            </div>
+            </Card>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="md:col-span-2 space-y-8">
-                <div className="bg-slate-900/50 border border-slate-700 rounded-lg p-6 sm:p-8 hover:border-cyan-400/50 transition-all hover:shadow-lg hover:shadow-cyan-500/20">
+                <Card className="bg-linear-to-tr from-slate-900/50 to-primary/20 border border-primary/20 rounded-lg p-6 sm:p-8 hover:border-cyan-400/50 transition-all hover:shadow-lg hover:shadow-cyan-500/20">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Description</h2>
                   <ul className="list-disc list-inside space-y-3">
                     {descriptionList.map((item, index) => (
@@ -93,35 +97,35 @@ const ProjectView = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Card>
 
-                <div className="bg-slate-900/50 border border-slate-700 rounded-lg p-6 sm:p-8 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/20">
+                <Card className="bg-linear-to-tl from-slate-900/50 to-primary/15 border border-primary/20 rounded-lg p-6 sm:p-8 hover:border-purple-400/50 transition-all hover:shadow-lg hover:shadow-purple-500/20">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Technologies Used</h2>
                   <div className="flex flex-wrap gap-2">
                     {technologiesList.map((tech, index) => (
-                      <span key={index} className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-cyan-400/50 text-sm sm:text-base font-medium">
+                      <Badge key={index} className="bg-primary/5 text-primary/80 px-2 sm:px-1.5 py-1.5 sm:py-1 rounded-full border border-cyan-400/50 text-sm sm:text-base font-medium">
                         {tech.trim()}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
-                </div>
+                </Card>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-slate-900/50 border border-slate-700 rounded-lg p-6 hover:border-cyan-400/50 transition-all hover:shadow-lg hover:shadow-cyan-500/20">
+                <Card className="bg-linear-to-br from-slate-900/50 to-primary/15 border border-primary/20 rounded-lg p-6 hover:border-cyan-400/50 transition-all hover:shadow-lg hover:shadow-cyan-500/20">
                   <h3 className="text-lg font-bold text-white mb-3">Deployment</h3>
                   <p className="text-slate-300 text-sm">
-                    <span className="font-semibold text-cyan-300">Status: </span>
+                    <span className="font-semibold text-primary/80">Status: </span>
                     {deployed}
                   </p>
-                </div>
+                </Card>
 
                 <Link
                   className="w-full"
                   target="_blank"
                   to={gitRepoLink}
                 >
-                  <Button className="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyan-400 text-white rounded-lg flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-cyan-500/30 font-semibold">
+                  <Button className="w-full mb-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyan-400 text-white rounded-lg flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-cyan-500/30 font-semibold">
                     <Github size={20} />
                     <span>Repository</span>
                   </Button>
@@ -132,7 +136,7 @@ const ProjectView = () => {
                   target="_blank"
                   to={projectLink}
                 >
-                  <Button className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 rounded-lg flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-cyan-500/60 font-semibold">
+                  <Button className="w-full bg-linear-to-r from-slate-800/80 to-primary/10 hover:from-slate-800/80 hover:to-primary/80 rounded-lg flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-primary/50 font-semibold">
                     <ExternalLink size={20} />
                     <span>View Live</span>
                   </Button>

@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const Portfolio = () => {
   const [viewAll, setViewAll] = useState(false);
@@ -52,7 +53,7 @@ const Portfolio = () => {
             projects.map((element) => {
               return (
                 <Link to={`/project/${element._id}`} key={element._id}>
-                  <Card className="overflow-hidden group cursor-pointer h-full bg-gradient-to-br from-slate-900/50 to-primary/15 border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/40">
+                  <Card className="overflow-hidden group cursor-pointer h-full bg-gradient-to-br from-slate-900/50 to-primary/15 border-primary/30 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/60">
                     <div className="relative overflow-hidden">
                       <img
                         src={element.projectBanner && element.projectBanner.url}
@@ -66,8 +67,8 @@ const Portfolio = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="p-4 sm:p-5">
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-cyan-400 transition-colors">
+                    <Card className="p-4 sm:p-5 border border-primary/30 group-hover:bg-primary/20 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-primary/50 transition-colors">
                         {element.title}
                       </h3>
                       <p className="text-sm text-slate-400 line-clamp-2 mb-3">
@@ -75,15 +76,15 @@ const Portfolio = () => {
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {element.technologies && element.technologies.split(", ").slice(0, 3).map((tech, idx) => (
-                          <span key={idx} className="text-xs bg-gradient-to-r from-cyan-500/30 to-purple-500/30 text-cyan-300 px-2 py-1 rounded border border-cyan-400/50">
+                          <Badge key={idx} className="text-xs bg-gradient-to-r from-black to-primary/70 text-white px-2 py-1 rounded border border-primary/50">
                             {tech}
-                          </span>
+                          </Badge>
                         ))}
                         {element.technologies && element.technologies.split(", ").length > 3 && (
                           <span className="text-xs text-slate-400">+{element.technologies.split(", ").length - 3} more</span>
                         )}
                       </div>
-                    </div>
+                    </Card>
                   </Card>
                 </Link>
               );
@@ -92,7 +93,7 @@ const Portfolio = () => {
             projects.slice(0, 9).map((element) => {
               return (
                 <Link to={`/project/${element._id}`} key={element._id}>
-                  <Card className="overflow-hidden group cursor-pointer h-full bg-slate-900/50 border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/40">
+                  <Card className="overflow-hidden group cursor-pointer h-full bg-linear-to-br from-black to-primary/25 border-primary/35 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/60">
                     <div className="relative overflow-hidden">
                       <img
                         src={element.projectBanner && element.projectBanner.url}
@@ -107,7 +108,7 @@ const Portfolio = () => {
                       </div>
                     </div>
                     <div className="p-4 sm:p-5">
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-primary/70 transition-colors">
                         {element.title}
                       </h3>
                       <p className="text-sm text-slate-400 line-clamp-2 mb-3">
@@ -115,7 +116,7 @@ const Portfolio = () => {
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {element.technologies && element.technologies.split(", ").slice(0, 3).map((tech, idx) => (
-                          <span key={idx} className="text-xs bg-gradient-to-r from-cyan-500/30 to-purple-500/30 text-cyan-300 px-2 py-1 rounded border border-cyan-400/50">
+                          <span key={idx} className="text-xs bg-primary/20 text-white px-2 py-1 rounded-full border border-primary/20">
                             {tech}
                           </span>
                         ))}

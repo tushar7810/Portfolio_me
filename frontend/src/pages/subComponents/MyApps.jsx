@@ -22,14 +22,14 @@ const MyApps = () => {
         {apps &&
           apps.map((element) => {
             return (
-              <Card key={element._id} className="h-fit p-5 sm:p-7 flex flex-col justify-center items-center gap-3 bg-slate-900/50 border-slate-700 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 group cursor-pointer">
-                <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-slate-800/50 to-slate-700/50 p-3 group-hover:from-purple-900/20 group-hover:to-cyan-900/20 transition-colors">
+              <Card key={element._id} className="h-fit p-5 sm:p-7 flex flex-col justify-center items-center gap-3 bg-linear-to-tr from-black to-primary/15 border-primary/30 hover:border-primary/70 hover:shadow-lg hover:shadow-primary/60 transition-all duration-300 group cursor-pointer">
+                <Card className="relative overflow-hidden rounded-lg bg-primary/15 p-3 group-hover:from-purple-900/20 group-hover:to-cyan-900/20 transition-colors border-none">
                   <img
                     src={element.image && element.image.url}
                     alt="software"
                     className="h-12 sm:h-20 w-auto group-hover:scale-110 transition-transform duration-300"
                   />
-                </div>
+                </Card>
                 <p className="text-muted-foreground text-center text-sm sm:text-base font-medium group-hover:text-purple-300 transition-colors">
                   {element.name}
                 </p>

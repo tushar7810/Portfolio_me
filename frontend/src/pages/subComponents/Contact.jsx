@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -52,7 +53,7 @@ const Contact = () => {
           <span className="absolute w-full h-1 top-7 sm:top-8 md:top-8 lg:top-11 z-[-1] bg-slate-200"></span>
         </div>
         
-        <div className="bg-gradient-to-br from-slate-900/50 to-slate-800/50 border border-slate-700 rounded-xl p-6 sm:p-8 md:p-10 hover:border-blue-500/50 transition-all duration-300">
+        <Card className="bg-linear-to-br from-black to-primary/25 border border-primary/60 rounded-xl p-6 sm:p-8 md:p-10 hover:border-primary/50 transition-all duration-300">
           <form onSubmit={handleMessage} className="flex flex-col gap-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
@@ -62,7 +63,7 @@ const Contact = () => {
                   type="text"
                   onChange={(e) => setSenderName(e.target.value)}
                   placeholder="Enter your name"
-                  className="bg-slate-800/50 border-slate-600 focus:border-blue-500 text-white placeholder-slate-500 transition-all"
+                  className="bg-transparent border-primary/30 focus:border-primary/25 text-primary placeholder:text-primary transition-all"
                   required
                 />
               </div>
@@ -73,7 +74,7 @@ const Contact = () => {
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="bg-slate-800/50 border-slate-600 focus:border-blue-500 text-white placeholder-slate-500 transition-all"
+                  className="bg-transparent border-primary/30 focus:border-primary/25 text-primary placeholder:text-primary transition-all"
                   required
                 />
               </div>
@@ -86,18 +87,18 @@ const Contact = () => {
                 type="text"
                 onChange={(e) => setSubject(e.target.value)}
                 placeholder="What's this about?"
-                className="bg-slate-800/50 border-slate-600 focus:border-blue-500 text-white placeholder-slate-500 transition-all"
+                className="bg-transparent border-primary/30 focus:border-primary/25 text-white placeholder:text-primary transition-all"
                 required
               />
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 border-primary/30 border rounded-lg p-3 sm:p-4 focus-within:border-primary/25 transition-all">
               <Label className="text-base sm:text-lg font-semibold text-slate-200">Message</Label>
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Your message here..."
-                className="bg-slate-800/50 border border-slate-600 rounded-md text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all p-3 resize-none min-h-32 sm:min-h-40"
+                className="bg-transparent focus:border-primary/25 text-white placeholder:text-primary transition-all p-3 resize-none min-h-32 sm:min-h-40"
                 required
               />
             </div>
@@ -106,7 +107,7 @@ const Contact = () => {
               {!loading ? (
                 <Button 
                   type="submit"
-                  className="w-full sm:w-56 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 rounded-lg flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-cyan-500/60 font-semibold"
+                  className="w-full sm:w-56 bg-primary/50 hover:primary/70 rounded-lg flex items-center justify-center gap-2 transition-all hover:shadow-lg hover:shadow-primary/60 font-semibold"
                 >
                   <Send size={18} />
                   <span>Send Message</span>
@@ -139,7 +140,7 @@ const Contact = () => {
               )}
             </div>
           </form>
-        </div>
+        </Card>
       </div>
     </>
   );

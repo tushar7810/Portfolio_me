@@ -20,6 +20,7 @@ const AddProject = () => {
 
   const [title , setTitle] = useState('')
   const [description , setDescription] = useState('')
+  const [features , setFeatures] = useState('')
   const [gitRepoLink , setGitRepoLink] = useState('')
   const [projectLink , setProjectLink] = useState('')
   const [technologies , setTechnologies] = useState('')
@@ -47,6 +48,7 @@ const AddProject = () => {
     const formData = new FormData()
     formData.append("title" , title)
     formData.append("description" , description)
+    formData.append("features" , features)
     formData.append("gitRepoLink" , gitRepoLink)
     formData.append("projectLink" , projectLink)
     formData.append("technologies" , technologies)
@@ -56,6 +58,7 @@ const AddProject = () => {
     dispatch(addProject(formData))
     setTitle('')
     setDescription('')
+    setFeatures('')
     setGitRepoLink('')
     setTechnologies('')
     setProjectLink('')
@@ -112,9 +115,23 @@ const AddProject = () => {
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                       <Textarea
-                        placeholder="Feature 1. Feature 2. Feature 3."
+                        placeholder="Describe the project in detail..."
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full sm:col-span-4">
+                  <Label className="block text-sm font-medium leading-6 text-gray-900">
+                    Features of the Project (Separate each feature with a period)
+                  </Label>
+                  <div className="mt-2">
+                    <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                      <Textarea
+                        placeholder="Feature 1. Feature 2. Feature 3."
+                        value={features}
+                        onChange={(e) => setFeatures(e.target.value)}
                       />
                     </div>
                   </div>

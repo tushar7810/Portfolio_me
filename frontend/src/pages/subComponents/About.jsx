@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card} from '@/components/ui/card'
 
 const About = () => {
   return (
@@ -24,13 +25,13 @@ const About = () => {
       <div>
         <div className="grid md:grid-cols-2 my-8 sm:my-16 md:my-20 gap-12 lg:gap-16">
           <div className="flex justify-center items-center">
-            <div className="rounded-xl overflow-hidden border-2 border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 p-3 sm:p-4 bg-slate-900/50">
+            <Card className="bg-linear-to-tl from-black to-primary/50 rounded-xl overflow-hidden border-1 border-primary/50 hover:border-primary/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 p-3 sm:p-4 bg-slate-900/50">
               <img
                 src="/profile.jpg"
                 alt="avatar"
                 className="rotate-[0deg] h-[240px] sm:h-[340px] md:h-[350px] lg:h-[450px] rounded-lg"
               />
-            </div>
+            </Card>
           </div>
           <div className="flex justify-center flex-col tracking-[1px] text-base sm:text-lg gap-5 sm:gap-6">
             <p className="text-slate-300 leading-relaxed">
@@ -45,22 +46,16 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="bg-gradient-to-r from-slate-900/50 to-slate-800/50 border border-slate-700 rounded-xl p-6 sm:p-8 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
+        <Card className="bg-gradient-to-r from-slate-900/50 to-primary/25 border-primary/15 rounded-xl p-6 sm:p-8 hover:border-primary/70 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
           <p className="tracking-[1px] text-base sm:text-lg text-slate-300 leading-relaxed">
             My dedication and perseverance in timely delivery of work are integral
             to me. I maintain the courage to face any challenges for extended
             periods.
           </p>
-        </div>
+        </Card>
       </div>
     </div>
   );
 }
-
-// export default About;
-//       </div>
-//     </div>
-//   );
-// }
 
 export default About;

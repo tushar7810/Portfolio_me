@@ -11,6 +11,7 @@ export const addProject = catchAsyncErrors(async (req, res, next) => {
     const {
         title,
         description,
+        features,
         gitRepoLink,
         projectLink,
         technologies,
@@ -46,6 +47,7 @@ export const addProject = catchAsyncErrors(async (req, res, next) => {
     const project = await Project.create({
         title,
         description,
+        features,
         gitRepoLink,
         projectLink,
         technologies,
@@ -70,6 +72,7 @@ export const updateProject = catchAsyncErrors(async (req, res, next) => {
         const {
             title,
             description,
+            features,
             gitRepoLink,
             projectLink,
             technologies,
@@ -78,7 +81,8 @@ export const updateProject = catchAsyncErrors(async (req, res, next) => {
         } = req.body
 
         if (title) project.title = title
-        if (description) project.description = description
+        if (description) project.description = description 
+        if (features) project.features = features 
         if (gitRepoLink) project.gitRepoLink = gitRepoLink
         if (projectLink) project.projectLink = projectLink
         if (technologies) project.technologies = technologies
